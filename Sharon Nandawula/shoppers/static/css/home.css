@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#ef7d2d;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.home-container{
+    text-align:center;
+}
+
+.logo{
+    width:220px;
+    margin-bottom:40px;
+}
+
+.join-btn{
+    background:white;
+    color:#ef7d2d;
+    padding:16px 70px;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+    border-radius:5px;
+    display:inline-block;
+}
+

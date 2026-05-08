@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+<div class="home-container">
+    <div class="logo-section">
+        <img src="{% static 'images/logo.png' %}" alt="Shop Logo" class="logo">
+    </div>
+
+    <div class="button-section">
+        <a href="{% url 'dashboard' %}" class="join-btn">JOIN NOW</a>
+    </div>
+</div>
+
+</body>
+</html>
