@@ -1,25 +1,32 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from .forms import ProductForm
 from .models import Product
+from .forms import ProductForm
 
-def dashboard(request):
+# Create your views here.
+def indexPage(request):
+    return render(request, 'inventory/index.html')
+
+
+def dashboardPage(request):
+    submitted = False  
+
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
+        form = ProductForm(request.POST)
+        submitted = True
+
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product added successfully!')
             return redirect('dashboard')
-        else:
-            messages.error(request, 'Please correct the errors below.')
+
     else:
         form = ProductForm()
 
-    products = Product.objects.all().order_by('-id')
-    return render(request, 'inventory/dashboard.html', {
-        'form': form,
-        'products': products
-    })
+    products = Product.objects.all()
 
-def home(request):
-    return render(request, 'inventory/index.html')
+    context = {
+        'form': form,
+        'products': products,
+        'submitted': submitted,
+    }
+
+    return render(request, 'inventory/dashboard.html', context)
